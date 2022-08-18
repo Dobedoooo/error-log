@@ -5,6 +5,7 @@ import { CatsModule } from './cats/cats.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { ErrorsModule } from './errors/errors.module';
+import { ErrorLog } from './errors/error.entity';
 
 @Module({
 	imports: [CatsModule, ErrorsModule, TypeOrmModule.forRoot({
@@ -14,8 +15,8 @@ import { ErrorsModule } from './errors/errors.module';
 		username: 'root',
 		password: '_doA4dcB8gYG3',
 		database: 'error_log',
-		entities: [User],
-		synchronize: true
+		entities: [User, ErrorLog],
+		synchronize: false
 	})],
 	controllers: [AppController],
 	providers: [AppService],

@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, DeleteDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class ErrorLog {
     @PrimaryGeneratedColumn()
-    error_id: string
+    error_id: number
 
     @Column()
     error_title: string
@@ -13,6 +13,9 @@ export class ErrorLog {
 
     @Column()
     error_create_time: string
+
+    @Column()
+    error_timestamp: string
 
     @Column()
     error_type: string
@@ -28,4 +31,7 @@ export class ErrorLog {
     
     @Column()
     error_resolve: string
+
+    @DeleteDateColumn()
+    error_deleted?: Date
 }
